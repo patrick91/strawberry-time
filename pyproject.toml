@@ -1,0 +1,27 @@
+[tool]
+[tool.pdm]
+[tool.pdm.dev-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "mypy",
+    "pytest",
+    "httpx",
+]
+[tool.pdm.scripts]
+dev = "uvicorn main:app --reload"
+start = "uvicorn main:app --host 0.0.0.0 --port 8080"
+
+[project]
+# PEP 621 project metadata
+# See https://www.python.org/dev/peps/pep-0621/
+dependencies = [
+    "strawberry-graphql",
+    "fastapi",
+    "uvicorn",
+]
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["pdm-pep517>=1.0.0"]
+build-backend = "pdm.pep517.api"
